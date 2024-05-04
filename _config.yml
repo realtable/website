@@ -44,4 +44,7 @@ exclude:
   - README.md
   - build
 
-# todo: dark mode, fix homepage title, get seo for site desc, pagespeed
+# TODO add a dark mode
+# TODO deal with font layout shift
+# TODO fix contrast (https://dequeuniversity.com/rules/axe/4.8/color-contrast)
+# TODO fix rich results

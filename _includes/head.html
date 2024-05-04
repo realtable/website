@@ -3,25 +3,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
-  <meta name="description" content="Josh Quail's personal website"> <!-- TODO -->
+  <meta name="description" content="Josh Quail's personal website">
 
   <title>
-    {% if page.title == "Home" %}
-      {{ site.title }}
+    {% if page.type == 'tag' or page.type == 'category' %}
+      #{{ page.title }} Archive
+    {% elsif page.type == 'year' %}
+      {{ page.date | date: "%Y" }} Archive
+    {% elsif page.type == 'month' %}
+      {{ page.date | date: "%b %Y" }} Archive
+    {% elsif page.type == 'day' %}
+      {{ page.date | date: "%d %b %Y" }} Archive
     {% else %}
-      {% if page.type == 'tag' or page.type == 'category' %}
-        #{{ page.title }} Archive
-      {% elsif page.type == 'year' %}
-        {{ page.date | date: "%Y" }} Archive
-      {% elsif page.type == 'month' %}
-        {{ page.date | date: "%b %Y" }} Archive
-      {% elsif page.type == 'day' %}
-        {{ page.date | date: "%d %b %Y" }} Archive
-      {% else %}
-        {{ page.title }}
-      {% endif %}
-      &middot; {{ site.shorturl }}
+      {{ page.title }}
     {% endif %}
+    &middot; {{ site.shorturl }}
   </title>
 
   {% include resources/styles.html %}
